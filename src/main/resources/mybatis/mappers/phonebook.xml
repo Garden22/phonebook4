@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="phonebook">
+
+	<select id="selectList" resultType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			SELECT person_id personId
+				   ,name
+				   ,hp
+				   ,company
+			FROM person
+			ORDER BY person_id DESC
+		]]>
+	</select>
+	
+	
+	<select id="personInsert" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			INSERT INTO person VALUES(seq_person_id.nextval, #{name}, #{hp}, #{company})
+		]]>
+	</select>
+	
+	
+	<select id="personDelete" parameterType="int">
+		<![CDATA[
+			DELETE FROM person
+			WHERE person_id = #{personId}
+		]]>
+	</select>
+	
+	
+	<select id="getPerson" parameterType="int" resultType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			SELECT person_id personId
+				   ,name
+				   ,hp
+				   ,company
+			FROM person
+			WHERE person_id = #{personId}
+		]]>
+	</select>
+	
+	
+	<select id="personUpdate" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[ 
+			UPDATE person
+			SET name = #{name}
+				,hp = #{hp}
+				,company = #{company}
+			WHERE person_id = #{personId}
+		]]>
+	</select>
+	
+</mapper>
