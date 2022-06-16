@@ -17,7 +17,8 @@
 	
 	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
-			INSERT INTO person VALUES(seq_person_id.nextval, #{name}, #{hp}, #{company})
+			INSERT INTO person 
+			VALUES(seq_person_id.nextval, #{name}, #{hp}, #{company})
 		]]>
 	</insert>
 	
@@ -36,7 +37,7 @@
 				   ,name
 				   ,hp
 				   ,company
-			FROM person
+			FROM  person
 			WHERE person_id = #{personId}
 		]]>
 	</select>
