@@ -15,19 +15,19 @@
 	</select>
 	
 	
-	<select id="personInsert" parameterType="com.javaex.vo.PersonVo">
+	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
 			INSERT INTO person VALUES(seq_person_id.nextval, #{name}, #{hp}, #{company})
 		]]>
-	</select>
+	</insert>
 	
 	
-	<select id="personDelete" parameterType="int">
+	<delete id="personDelete" parameterType="int">
 		<![CDATA[
 			DELETE FROM person
 			WHERE person_id = #{personId}
 		]]>
-	</select>
+	</delete>
 	
 	
 	<select id="getPerson" parameterType="int" resultType="com.javaex.vo.PersonVo">
@@ -42,7 +42,7 @@
 	</select>
 	
 	
-	<select id="personUpdate" parameterType="com.javaex.vo.PersonVo">
+	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[ 
 			UPDATE person
 			SET name = #{name}
@@ -50,6 +50,6 @@
 				,company = #{company}
 			WHERE person_id = #{personId}
 		]]>
-	</select>
+	</update>
 	
 </mapper>
